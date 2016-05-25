@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <knowndevices>
+
+        <device name="TFM-561U">
+            <hex>1329</hex>
+            <decimal>4905</decimal>
+            <initializationFile>TFM-561U_IntializationSequence.inz</initializationFile>
+            <sharedResourceName>TRENDNET_DIAL_MODEM</sharedResourceName>
+        </device>
+
+        <device name="HIRO-V92-56K">
+            <hex>07da</hex>
+            <decimal>2010</decimal>
+            <initializationFile>HIRO-V92-56K_IntializationSequence.inz</initializationFile>
+            <sharedResourceName>HIRO_DIAL_MODEM</sharedResourceName>
+        </device>
+
+        <device name="USRobotics_USR-5637">
+            <hex>0303</hex>
+            <decimal>771</decimal>
+            <initializationFile>USRobotics_USR-5637_IntializationSequence.inz</initializationFile>
+            <sharedResourceName>USROBOTICS_DIAL_MODEM</sharedResourceName>
+        </device>
+
+    </knowndevices>
+
+</PreferenceScreen>

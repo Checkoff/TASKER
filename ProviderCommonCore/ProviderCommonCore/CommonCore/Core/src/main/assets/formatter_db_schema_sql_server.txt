@@ -1,0 +1,282 @@
+/****** Object:  Database [Formatter]    Script Date: 5/29/2014 11:30:26 AM ******/
+CREATE DATABASE [Formatter]
+ CONTAINMENT = NONE
+ ON  PRIMARY
+( NAME = N'Formatter', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.TOTALCOREDATA\MSSQL\DATA\Formatter.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON
+( NAME = N'Formatter_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.TOTALCOREDATA\MSSQL\DATA\Formatter_log.ldf' , SIZE = 6912KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+
+/****** Object:  Table [dbo].[Formatter_CommandGlobal]    Script Date: 5/29/2014 11:31:17 AM ******/
+
+CREATE TABLE [dbo].[Formatter_CommandGlobal](
+	[Command_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Enum_Name] [varchar](50) NOT NULL,
+	[Command_Code] [char](4) NOT NULL,
+	[Processing_Code] [char](6) NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_CommonKey]    Script Date: 5/29/2014 11:33:05 AM ******/
+
+CREATE TABLE [dbo].[Formatter_CommonKey](
+	[ProvidersKey_ID] [int] IDENTITY(1,1) NOT NULL,
+	[TfeKey_Name] [varchar](250) NOT NULL,
+	[TfeKey_Value] [int] NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL,
+
+/****** Object:  Table [dbo].[Formatter_FixedOutput_Rule]    Script Date: 5/29/2014 11:33:34 AM ******/
+
+CREATE TABLE [dbo].[Formatter_FixedOutput_Rule](
+	[Rule_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Formatter_FixedOutput_Rule_Name] [varchar](20) NOT NULL,
+	[Type_Formatter_RuleType_ID] [bigint] NOT NULL,
+	[Formatter_FixedOutput_Position] [int] NULL,
+	[Formatter_FixedOutput_Width] [int] NOT NULL,
+	[Formatter_FixedOutput_Sequence] [int] NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_Format_Rule]    Script Date: 5/29/2014 11:33:56 AM ******/
+CREATE TABLE [dbo].[Formatter_Format_Rule](
+	[Formatter_Format_Rule_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Rule_Format_Name] [varchar](20) NOT NULL,
+	[Rule_Type] [bigint] NOT NULL,
+	[Rule_DataType] [char](30) NULL,
+	[Rule_Pattern] [char](50) NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_Rule_Type]    Script Date: 5/29/2014 11:34:19 AM ******/
+
+CREATE TABLE [dbo].[Formatter_Rule_Type](
+	[Formatter_DataType_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Formatter_RuleType] [varchar](30) NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Formatter_RuleSet_BaseType]    Script Date: 5/29/2014 11:34:51 AM ******/
+
+CREATE TABLE [dbo].[Formatter_RuleSet_BaseType](
+	[RuleSetType_ID] [int] IDENTITY(1,1) NOT NULL,
+	[RulesetType_Name] [varchar](30) NOT NULL,
+	[RuleSet_ID] [int] NOT NULL,
+	[RelatedRuleSet_ID] [int] NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_RuleSet_Rule]    Script Date: 5/29/2014 11:35:11 AM ******/
+
+CREATE TABLE [dbo].[Formatter_RuleSet_Rule](
+	[Formatter_Ruleset_Rule_ID] [int] IDENTITY(1,1) NOT NULL,
+	[RuleSet_ID] [int] NOT NULL,
+	[Rule_ID] [int] NOT NULL,
+	[Type_Formatter_RuleType_ID] [bigint] NOT NULL,
+	[Rule_Sequence] [int] NOT NULL,
+	[Output_Sequence] [int] NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_RuleSet_Type]    Script Date: 5/29/2014 11:35:34 AM ******/
+CREATE TABLE [dbo].[Formatter_RuleSet_Type](
+	[RuleSetType_ID] [int] IDENTITY(1,1) NOT NULL,
+	[RulesetType_Name] [varchar](30) NOT NULL,
+	[RuleSet_ID] [int] NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Formatter_RuleSetAux_Rule]    Script Date: 5/29/2014 11:35:52 AM ******/
+
+CREATE TABLE [dbo].[Formatter_RuleSetAux_Rule](
+	[Formatter_RuleSet_AuxRule_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Formatter_RuleSet_Rule_ID] [int] NOT NULL,
+	[AssosiatedRule_ID] [int] NOT NULL,
+	[Type_Formatter_RuleType_ID] [bigint] NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Formatter_TfeToGlobal_Rule]    Script Date: 5/29/2014 11:36:06 AM ******/
+CREATE TABLE [dbo].[Formatter_TfeToGlobal_Rule](
+	[Rule_ID] [int] IDENTITY(1,1) NOT NULL,
+	[BitNumber] [int] NOT NULL,
+	[Field] [varchar](50) NOT NULL,
+	[Attribute] [varchar](20) NOT NULL,
+	[Length] [int] NULL,
+	[Status] [varchar](5) NOT NULL,
+	[Operation] [varchar](10) NULL,
+	[create_ts] [datetime] NULL,
+	[deactivated] [bit] NULL,
+	[deactivatedDate] [nchar](10) NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_Validation_Rule]    Script Date: 5/29/2014 11:36:24 AM ******/
+
+CREATE TABLE [dbo].[Formatter_Validation_Rule](
+	[Rule_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Validation_Rule_Name] [varchar](20) NOT NULL,
+	[Formatter_Validation_Rule_Type_Formatter_RuleType_ID] [bigint] NOT NULL,
+	[Validation_Rule_LowBound] [char](50) NULL,
+	[Validation_Rule_UpperBound] [char](50) NULL,
+	[Validation_Rule_Pattern] [char](500) NULL,
+	[Description] [varchar](200) NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Formatter_ValidationRuleName]    Script Date: 5/29/2014 11:36:39 AM ******/
+
+CREATE TABLE [dbo].[Formatter_ValidationRuleName](
+	[ValidationRuleName_Name] [varchar](30) NOT NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  Table [dbo].[Formatter_XmlGetField_Rule]    Script Date: 5/29/2014 11:36:57 AM ******/
+
+CREATE TABLE [dbo].[Formatter_XmlGetField_Rule](
+	[Rule_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Rule_Element_Path] [varchar](350) NULL,
+	[Type_Formatter_RuleType_ID] [bigint] NOT NULL,
+	[TfeKey_Value] [int] NOT NULL,
+	[Read_Instruction] [varchar](2) NULL,
+	[Output_Sequence] [int] NULL,
+	[create_ts] [datetime] NOT NULL,
+	[deactivated] [bit] NOT NULL,
+	[deactivatedDate] [datetime] NULL,
+	[deactivatedBy] [bigint] NULL
+) ON [PRIMARY]
+
+
+/****** Object:  StoredProcedure [dbo].[GetFormatterRules]    Script Date: 5/29/2014 11:44:33 AM ******/
+ALTER PROCEDURE [dbo].[GetFormatterRules]
+
+	Select	xmlR.[Rule_ID],	[Rule_Element_Path], xmlR.[Type_Formatter_RuleType_ID], [TfeKey_Value], [Read_Instruction], xmlR.[Output_Sequence], RS.RuleSet_ID
+	from	Formatter.[dbo].Formatter_XmlGetField_Rule xmlR
+	join [Formatter].[dbo].[Formatter_RuleSet_Rule] RS on xmlR.Rule_ID = RS.Rule_ID
+	join Formatter.[dbo].Formatter_RuleSet_Type RST on RS.RuleSet_ID = RST.RuleSet_ID
+	where RST.deactivated = 0 and xmlR.deactivated = 0 and RS.deactivated = 0
+
+	select	[Rule_ID], 	[Validation_Rule_Name],	[Formatter_Validation_Rule_Type_Formatter_RuleType_ID],
+			[Validation_Rule_LowBound],	[Validation_Rule_UpperBound], [Validation_Rule_Pattern]
+	from	Formatter.[dbo].[Formatter_Validation_Rule] where deactivated = 0
+
+	select	[Formatter_Format_Rule_ID],	[Rule_Format_Name], [Rule_Type], [Rule_DataType], [Rule_Pattern]
+	from	Formatter.[dbo].[Formatter_Format_Rule] where deactivated = 0
+
+	Select [Rule_ID], [Formatter_FixedOutput_Rule_Name], [Type_Formatter_RuleType_ID], [Formatter_FixedOutput_Position],
+		[Formatter_FixedOutput_Width], [Formatter_FixedOutput_Sequence]
+	from Formatter.[dbo].[Formatter_FixedOutput_Rule] where deactivated = 0
+
+	;with AllRules as
+	(
+	Select FRS.[Formatter_RuleSet_Rule_ID], FRS.[RuleSet_ID], [Rule_ID], [Rule_Sequence], [Output_Sequence], ARS.AssosiatedRule_ID, ARS.[Type_Formatter_RuleType_ID],
+	case when ARS.[Type_Formatter_RuleType_ID] = 2 then ARS.AssosiatedRule_ID else null end as ValidationRuleID,
+	case when ARS.[Type_Formatter_RuleType_ID] = 3 then ARS.AssosiatedRule_ID else null end as FormatRuleID,
+	case when ARS.[Type_Formatter_RuleType_ID] = 4 then ARS.AssosiatedRule_ID else null end as FormatOutput
+	from Formatter.[dbo].[Formatter_RuleSet_Rule] FRS
+	join Formatter.[dbo].Formatter_RuleSet_Type RST on  FRS.RuleSet_ID = RST.RuleSet_ID and RST.deactivated = 0
+	left join Formatter.[dbo].[Formatter_RuleSetAux_Rule] ARS on FRS.Formatter_Ruleset_Rule_ID = ARS.Formatter_RuleSet_Rule_ID and ARS.deactivated = 0
+	where FRS.deactivated = 0
+	)
+	select Max(Formatter_RuleSet_Rule_ID) Formatter_RuleSet_Rule_ID, Max([RuleSet_ID]) RuleSet_ID,
+	Max([Rule_ID]) Rule_ID, max(ValidationRuleID) ValidationRule_ID, Max(FormatRuleID) FormatRule_ID, Max(FormatOutput) FormatOutput_ID,
+	Max([Rule_Sequence]) Rule_Sequence, Max([Output_Sequence]) Output_Sequence
+	from AllRules
+	group by  Formatter_RuleSet_Rule_ID, RuleSet_ID, Rule_ID, Rule_Sequence, Output_Sequence
+
+	--Select  FRT.[RuleSetType_ID], FRT.[RuleSetType_Name], FRT.[RuleSet_ID], FRel.RelatedRuleSet_ID
+	--from	Formatter.[dbo].[Formatter_RuleSet_Type]  FRT
+	--left join [dbo].[Formatter_RuleSet_BaseType]  FRel on FRT.RuleSet_ID = FRel.RuleSet_ID and FRel.deactivated = 0
+	--where FRT.deactivated = 0
+	Select  [RuleSetType_ID], [RuleSetType_Name], [RuleSet_ID]
+	from	Formatter.[dbo].[Formatter_RuleSet_Type]
+	where deactivated = 0
+
+	SELECT [Rule_ID], [BitNumber], [Field], [Attribute], [Length], [Status], [Operation]
+	FROM [Formatter].[dbo].[Formatter_TfeToGlobal_Rule] where [Formatter].[dbo].[Formatter_TfeToGlobal_Rule].deactivated = 0
+
+	Select [Enum_Name],	[Command_Code],	[Processing_Code]
+	from [Formatter].[dbo].[Formatter_CommandGlobal] where [Formatter].[dbo].[Formatter_CommandGlobal].deactivated = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

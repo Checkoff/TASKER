@@ -1,0 +1,39 @@
+Result Code (Table 1) 
+Long Form Short Form n value in ATXn 
+0 1 2 3 4 
+OK 0 x x x x x 
+CONNECT 1 x x x x x 
+RING 2 x x x x x 
+NO CARRIER 3 x x x x x 
+ERROR 4 x x x x x 
+CONNECT 1200 5 x x x x 
+NO DIALTONE 6 x x 
+BUSY 7 x x 
+NO ANSWER 8 x x 
+CONNECT 600 9 x x x x x 
+CONNECT 2400 10 x x x x 
+CONNECT 4800 11 x x x x 
+CONNECT 9600 12 x x x x 
+CONNECT 7200 13 x x x x 
+CONNECT 12000 14 x x x x 
+CONNECT 14400 20 x x x x 
+CONNECT 19200 21 x x x x 
+CONNECT 38400 22 x x x x 
+CONNECT 57600 23 x x x x 
+CONNECT 115200 24 x x x x 
+CONNECT 1200RX/75TX 25 x x x x 
+CONNECT 75TX/1200RX 26 x x x x 
+RINGBACK 27 x x x x 
+CONNECT BELL 300 28 x x x x 
+CONNECT V21 29 x x x x 
+
+( Display DCE speeds by ATW0 ) 
+
+CONNECT 16800 15 x x x x 
+CONNECT 19200 16 x x x x 
+CONNECT 21600 17 x x x x 
+CONNECT 24000 21 x x x x 
+CONNECT 26400 30 x x x x 
+CONNECT 28800 31 x x x x 
+CONNECT 31200 32 x x x x 
+CONNECT 33600 33 x x x x 
