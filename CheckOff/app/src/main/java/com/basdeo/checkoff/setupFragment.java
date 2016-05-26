@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.basdeo.checkoff.ProviderGlobals;
+import com.basdeo.providercorelib.Globals.ProviderGlobals;
 import com.basdeo.checkoff.R;
 
 /**
