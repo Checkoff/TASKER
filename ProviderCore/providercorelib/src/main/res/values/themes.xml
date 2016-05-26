@@ -1,0 +1,5 @@
+<resources>
+ <style name="WhiteTheme" parent="@android:style/Theme.Light">
+     <item name="android:windowBackground">@color/white_smoke</item>
+ </style>
+</resources>
