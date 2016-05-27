@@ -28,11 +28,8 @@ public class FragmentManager extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         String message = getArguments().getString(EXTRA_MESSAGE);
-        View v = inflater.inflate(R.layout.myfragment_layout, container, false);
-        //TextView messageTextView = (TextView)v.findViewById(R.id.textView);
-        //messageTextView.setText(message);
-
-        return v;
+        View v = inflater.inflate(R.layout.activity_dashboard, container, false);
+      return v;
     }
 
 }

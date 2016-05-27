@@ -23,15 +23,15 @@ public class PageViewActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_page_view);
+        setContentView(R.layout.activity_page_view);
 
 
         List<Fragment> fragments = getFragments();
 
         pageAdapter = new MyPageAdapter(getSupportFragmentManager(), fragments);
 
-        //ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
-        //pager.setAdapter(pageAdapter);
+        ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
+        pager.setAdapter(pageAdapter);
     }
 
 
