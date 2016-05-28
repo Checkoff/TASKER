@@ -1,8 +1,9 @@
 package com.basdeo.checkoff;
 
 /**
- * Created by eugen on 5/25/2016.
+ * Created by Eugene on 3/22/14.
  */
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,8 +11,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuInflater;
-
-import com.basdeo.checkoff.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +46,7 @@ public class PageViewActivity extends FragmentActivity {
     private List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
 
-        fList.add(FragmentManager.newInstance("Dashboard"));
+        fList.add(FragmentManager.newInstance("Setup"));
 
         return fList;
     }

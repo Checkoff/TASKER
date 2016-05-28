@@ -1,13 +1,13 @@
 package com.basdeo.checkoff;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.basdeo.providercorelib.Globals.ProviderGlobals;
-import com.basdeo.checkoff.R;
 
 /**
  * Created by Eugene on 3/27/14.
@@ -26,7 +26,7 @@ public class setupFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_dashboard, container, false);
+        View rootView = inflater.inflate(R.layout.dashboard, container, false);
 
         super.onCreate(savedInstanceState);
         ProviderGlobals g = ProviderGlobals.getInstance();
