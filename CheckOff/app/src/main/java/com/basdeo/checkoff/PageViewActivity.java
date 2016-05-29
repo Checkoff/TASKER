@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageViewActivity extends FragmentActivity {
-    MyPageAdapter pageAdapter;
+    PageAdapter pageAdapter;
 
 
     @Override
@@ -27,7 +27,7 @@ public class PageViewActivity extends FragmentActivity {
 
         List<Fragment> fragments = getFragments();
 
-        pageAdapter = new MyPageAdapter(getSupportFragmentManager(), fragments);
+        pageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
 
         ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
         pager.setAdapter(pageAdapter);
@@ -51,10 +51,10 @@ public class PageViewActivity extends FragmentActivity {
         return fList;
     }
 
-    private class MyPageAdapter extends FragmentPagerAdapter {
+    private class PageAdapter extends FragmentPagerAdapter {
         private List<Fragment> fragments;
 
-        public MyPageAdapter(android.support.v4.app.FragmentManager fm, List<Fragment> fragments) {
+        public PageAdapter(android.support.v4.app.FragmentManager fm, List<Fragment> fragments) {
             super(fm);
             this.fragments = fragments;
         }
