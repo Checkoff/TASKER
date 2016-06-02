@@ -1,8 +1,12 @@
-package com.basdeo.checkoff;
+package com.basdeo.checkoff.Handlers;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.basdeo.checkoff.Fragments.dashboardFragment;
+import com.basdeo.checkoff.Fragments.settingsFragment;
+import com.basdeo.checkoff.Fragments.taskmanagementFragment;
 
 import java.util.ArrayList;
 import java.util.List;

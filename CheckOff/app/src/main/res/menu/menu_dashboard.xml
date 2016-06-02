@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        />
-    <item android:id="@+id/showlog"
-        android:title="@string/showlog"
-        />
-    <item android:id="@+id/showSharedProperties"
-        android:title="@string/showSharedProperties"
-         />
+<!-- used to need this custom namespace with 'app compatibility' libraries -->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto">-->
 
-    <item android:id="@+id/showGlobals"
-        android:title="@string/showGlobals"
-        />
+<!-- from the docs: to request that an item appear directly in the action bar as an action button, include showAsAction="ifRoom" -->
+<!-- menu resources: http://developer.android.com/guide/topics/resources/menu-resource.html -->
 
-    <item android:id="@+id/clear_application_log_option"
-        android:title="@string/clear_application_log_option"
-         />
+<!-- shared properties -->
+<item android:id="@+id/showSharedProperties"
+    android:title="@string/showSharedProperties"
+    android:icon="@android:drawable/ic_menu_info_details"
+    app:showAsAction="ifRoom|withText"/>
+
+<!-- log -->
+<item android:id="@+id/showlog"
+    android:title="@string/showlog"
+    android:icon="@android:drawable/ic_menu_recent_history"
+    app:showAsAction="ifRoom|withText" />
+
+<!-- clear log -->
+<item android:id="@+id/clear_application_log_option"
+    android:title="@string/clear_application_log_option"
+    android:icon="@android:drawable/ic_delete"
+    app:showAsAction="ifRoom|withText" />
+
+<!-- Globals -->
+<item android:id="@+id/showGlobals"
+    android:title="@string/showGlobals"
+    android:icon="@android:drawable/ic_menu_preferences"
+    app:showAsAction="ifRoom|withText" />
+
+
 </menu>

@@ -9,9 +9,11 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -26,6 +28,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.basdeo.checkoff.Handlers.PagerSlidingTabStrip;
+import com.basdeo.checkoff.Handlers.SectionsPagerAdapter;
 import com.basdeo.providercorelib.Globals.AllGlobalsToString;
 import com.basdeo.providercorelib.Globals.ProviderGlobals;
 import com.basdeo.providercorelib.Log.LogLevel;
@@ -64,7 +68,7 @@ public class TaskerMain extends AppCompatActivity {
     private ViewPager mViewPager;
     private ConfigProvider cp = new ConfigProvider();
     private int currentPage = 0;
-
+    private SharedPreferences sp = null;
     private ImageHandler ih = new ImageHandler();
 
 
@@ -83,7 +87,12 @@ public class TaskerMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // this little guy is the controlling view.   It doesn't have program content in the layout
         setContentView(R.layout.activity_main);
+        // setup our toolbar
+        Toolbar mainToolbar = (Toolbar) findViewById(R.id.toolbar);
+        // make sure we support actions
+        setSupportActionBar(mainToolbar);
 
         try {
             loadUsUp("Loading.......", 1000);
@@ -160,11 +169,25 @@ public class TaskerMain extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_settings)
-            pager.setCurrentItem(1);
-        else if (item.getItemId() == android.R.id.home)
-            log.appendToLibraryLog("\n" + "MainActivity.java | onOptionsItemSelected" + "|" + "home ==========" + "|", LogLevel.Debug_Log);
-        return super.onOptionsItemSelected(item);
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.showlog:
+                showLogSoFar();
+                return true;
+            case R.id.clear_application_log_option:
+                clearApplicationLog();
+                return true;
+            case R.id.showSharedProperties:
+                showSavedConfiguration();
+                return true;
+            case R.id.showGlobals:
+                showGlobals();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -182,6 +205,16 @@ public class TaskerMain extends AppCompatActivity {
             g.setapplicationContext(getApplicationContext());
             final ActionBar actionBar = getActionBar();
             g.setisDebugModeActive(true);
+
+            if (IsNullOrEmpty.isNotNull(sp)) {
+                g.setsettings(sp);
+            } else
+            {
+                sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                g.setsettings(sp);
+
+            }
+
 
             // * ###################################################################
             // * This Is In All Applications That Use The Library  (START)

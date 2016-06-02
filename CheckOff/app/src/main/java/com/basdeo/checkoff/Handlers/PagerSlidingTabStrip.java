@@ -1,4 +1,4 @@
-package com.basdeo.checkoff;
+package com.basdeo.checkoff.Handlers;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,6 +26,8 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.basdeo.checkoff.R;
 
 import java.util.Locale;
 
