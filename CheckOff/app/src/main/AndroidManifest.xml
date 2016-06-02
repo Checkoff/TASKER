@@ -48,5 +48,11 @@
         <!-- IGNORE THE "ERROR" that Android reports for this permissions -->
         <uses-permission android:name="android.permission.HARDWARE_TEST" />
     </permissions>
+
+        <provider
+            android:name=".Databases.taskContentProvider"
+            android:authorities="com.basdeo.checkoff.Databases.taskContentProvider" >
+        </provider>
+
     </application>
 </manifest>

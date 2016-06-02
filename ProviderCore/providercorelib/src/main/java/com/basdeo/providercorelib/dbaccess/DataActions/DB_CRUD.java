@@ -11,8 +11,44 @@ import com.basdeo.providercorelib.dbaccess.DBController;
 import com.basdeo.providercorelib.dbaccess.DataDefinitions.RequestTracking;
 
 /**
- * Created by Eugene on 5/25/2014.
+ * Created by Eugene on 6/1/16
  */
+
+    // ***********************************************************
+    // Note the purpose of the class
+    // This is a framework for addressing different DB actions that may need to be taken in a template format
+
+    // The following gives an example of a rawQuery() call.
+    //    -----------------------------------------------------
+
+
+    //    Cursor cursor = getReadableDatabase().
+    //    rawQuery("select * from todo where _id = ?", new String[] { id });
+
+
+    //    The following gives an example of a query() call.
+    //    -----------------------------------------------------
+
+    //    return database.query(DATABASE_TABLE,
+    //    new String[] { KEY_ROWID, KEY_CATEGORY, KEY_SUMMARY, KEY_DESCRIPTION },
+    //    null, null, null, null, null);
+
+    //Parameter		            Comment
+    //--------------------	    ------------------------------------------------------------------------
+    //String dbName		        The table name to compile the query against.
+    //String[] columnNames	    A list of which table columns to return. Passing "null" will return all columns.
+    //String whereClause	    Where-clause, i.e. filter for the selection of data, null will select all data.
+    //String[] selectionArgs	You may include ?s in the "whereClause"". These placeholders will get replaced by the values from the selectionArgs array.
+    //String[] groupBy	        A filter declaring how to group rows, null will cause the rows to not be grouped.
+    //String[] having		    Filter for the groups, null means no filter.
+    //String[] orderBy	        Table columns which will be used to order the data, null means no ordering.
+
+
+
+
+
+// ***********************************************************
+
 public class DB_CRUD {
     String result="";
     Cursor cursor = null;

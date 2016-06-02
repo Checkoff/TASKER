@@ -1,7 +1,7 @@
 package com.basdeo.providercorelib.dbaccess;
 
 /**
- * Created by Eugene on 5/24/2016.
+ * Created by Eugene on 6/1/16
  */
 
 import android.content.ContentValues;
