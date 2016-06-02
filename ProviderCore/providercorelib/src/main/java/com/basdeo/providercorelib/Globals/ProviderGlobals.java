@@ -3,19 +3,21 @@ package com.basdeo.providercorelib.Globals;
 
 
         import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.content.res.AssetManager;
+import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+        import android.content.res.Configuration;
         import android.content.res.Resources;
-        import android.content.res.XmlResourceParser;
-        import android.widget.ProgressBar;
-        import android.widget.TextView;
-        import android.widget.Button;
-        import com.basdeo.providercorelib.files.AssetReader;
-        import com.basdeo.providercorelib.files.FileReader;
-        import com.basdeo.providercorelib.files.FileWriter;
-        import com.basdeo.providercorelib.files.XMLResourceReader;
+import android.content.res.XmlResourceParser;
+import android.view.Display;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-        import java.util.HashMap;
+import com.basdeo.providercorelib.files.AssetReader;
+import com.basdeo.providercorelib.files.FileReader;
+import com.basdeo.providercorelib.files.FileWriter;
+import com.basdeo.providercorelib.files.XMLResourceReader;
+
+import java.util.HashMap;
 
 /**
  * Created by Eugene on 5/24/16.
@@ -46,9 +48,24 @@ public class ProviderGlobals {
     private HashMap<String, String> configurationValues;
     private SharedPreferences settings;
     private Context applicationContext;
+    private Display display;
+    private Configuration config;
 
 
     private String userName;
+
+
+
+    // Get and Set Methods
+    public void setconfig (Configuration d) {
+        this.config = d;
+    }
+
+    public Configuration getconfig () {
+        return this.config ;
+    }
+
+
     public void setuserName(String d){
         this.userName=d;
     }
@@ -180,6 +197,14 @@ public class ProviderGlobals {
 
     public TextView getLogListing() {
         return this.LogListing;
+    }
+
+    public void setdisplay (Display d) {
+        this.display = d;
+    }
+
+    public Display getdisplay () {
+        return this.display ;
     }
 
 

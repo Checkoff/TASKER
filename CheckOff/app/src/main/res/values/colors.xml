@@ -3,7 +3,14 @@
     <!-- Totally "960 Colors"
     Author : VenomVendor
     -->
-
+    <color name="psts_background_tab_pressed">#1AFFFFFF</color>
+    <color name="background_window">#FFE5E5E5</color>
+    <color name="green">#689F38</color>
+    <color name="greenDark">#3E5F22</color>
+    <color name="banana">#FFCC00</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
     <!-- Colors arranged from A -Z -->
     <color name="air_force_blue">#5D8AA8</color>
     <color name="algae_green">#64E986</color>
