@@ -22,7 +22,7 @@ public class SetProgressBarMaxReceiver extends BroadcastReceiver {
             try {
                 String action = i.getAction();
 
-                if (GroovvEventTypes.PROGRESS_BAR_SET_MAX.equals(action)) {
+                if (checkoffEventTypes.PROGRESS_BAR_SET_MAX.equals(action)) {
                     synchronized (this) {
                         int valueMax = Integer.parseInt(i.getStringExtra("MAXVALUE"));
                         g.setprogressMaxValue(valueMax);

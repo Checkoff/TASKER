@@ -29,7 +29,7 @@ public class ApplicationSetProgressBarMaxReceiver extends BroadcastReceiver {
             // ************************************************************************************************
             // *************Modem Connection *******************************************************
             // ************************************************************************************************
-            if (GroovvEventTypes.PROGRESS_BAR_SET_MAX.equals(action)) {
+            if (checkoffEventTypes.PROGRESS_BAR_SET_MAX.equals(action)) {
                 log.appendToLibraryLog("\n" + "ACTION_PROGRESS_BAR_MAX", LogLevel.Debug_Log);
 
                 try {

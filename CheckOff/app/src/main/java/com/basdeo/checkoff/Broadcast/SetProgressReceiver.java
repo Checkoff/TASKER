@@ -22,7 +22,7 @@ public class SetProgressReceiver extends BroadcastReceiver {
             try {
                 String action = i.getAction();
 
-                if (GroovvEventTypes.PROGRESS_BAR_SET_FIXED_VALUE.equals(action)) {
+                if (checkoffEventTypes.PROGRESS_BAR_SET_FIXED_VALUE.equals(action)) {
                     synchronized (this) {
                         int value = Integer.parseInt(i.getStringExtra("NEWVALUE"));
                         g.setprogressCurrentValue(value);

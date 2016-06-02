@@ -33,7 +33,7 @@ public class ApplicationSetProgressReceiver extends BroadcastReceiver {
             // ************************************************************************************************
             // *************Modem Connection *******************************************************
             // ************************************************************************************************
-            if (GroovvEventTypes.PROGRESS_BAR_SET_FIXED_VALUE.equals(action)) {
+            if (checkoffEventTypes.PROGRESS_BAR_SET_FIXED_VALUE.equals(action)) {
                 log.appendToLibraryLog("\n" + "ACTION_SET_PROGRESS", LogLevel.Debug_Log);
 
                 try {
